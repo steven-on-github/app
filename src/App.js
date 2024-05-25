@@ -1,10 +1,14 @@
 import './App.css';
-import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route  } from 'react-router-dom'
+import Landing from './Landing';
+import Dashboard from './Dashboard';
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path='/' element={ Math.random() < 0.5 ? <Landing/> : <Dashboard/> } />
+));
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <RouterProvider router={ router } />
   );
 }
 
